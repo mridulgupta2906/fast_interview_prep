@@ -1,0 +1,125 @@
+			CHECK FOR PALINDROME
+
+
+def checkpalindrome(str) :
+    i=0
+    j=len(str)-1
+    check=1
+    while i<j:
+        if str[i]==str[j]:
+            i=i+1
+            j=j-1
+        else:
+            print("not a palindrome")
+            check=0
+            break
+    return check
+
+
+
+check=checkpalindrome("asdfazafdsa")
+if check==1:
+    print("palindrome")
+
+
+***************************************************************************************************
+
+
+			REVERSE A STRING
+
+def reversestring(str):
+    slicestr=str[::-1]		# slicestr using slice method
+    #        OR
+    newstr=""			
+    for x in str:		# using loop
+        newstr=x+newstr
+    print(newstr)
+    print(slicestr)
+
+
+
+reversestring("abcdef")
+
+
+
+****************************************************************************************************
+
+
+			COUNT OCCURENCE OF EACH ELEMENTS
+
+def elementscount(lst):
+    dict={};
+    for i in lst:
+        if i in dict:
+            dict[i]=dict[i]+1
+        else:
+            dict[i]=1
+    print(dict)
+
+
+
+
+elementscount([2,3,4,4,4,5,2])
+
+
+****************************************************************************************************
+
+
+		Fibonacci
+
+
+def fibonacci(n):
+    if n==0: return 0
+    if n==1: return 1
+    return fibonacci(n-1)+fibonacci(n-2)
+    
+val=fibonacci(9)
+print(val)
+
+***************************************************************************************************
+	
+
+
+		Factorial
+
+
+def factorial(n):
+    if n==1: return 1
+    return n*factorial(n-1)
+    
+    
+    
+val=factorial(6)
+print(val)
+
+
+
+
+
+******************************************************************************************************
+					power 
+
+def power(n,i):
+    val=1
+    
+    for x in range (1,i+1):
+        val=val*n
+    print(val)
+
+power(2,10)
+
+
+
+******************************************************************************************************
+					recursion
+
+
+def recrsion(n,i):
+    if i==1:
+        return n
+    return recrsion(n,i-1)*n
+    
+    
+    
+val=recrsion(2,10)
+print(val)

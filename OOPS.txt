@@ -1,0 +1,31 @@
+			OOPS
+
+^ OBJECT is an basic unit that represents a real life entity, it has a physical existence and have a
+	memory address location. Its properties can be seen in class.
+
+^ CLASS can be said as blueprint for a object that consist of data members and methods that are
+	properties of object. A class does not have any physical existance or any memory.
+
+
+
+
+
+
+
+Abstraction 	-  only showing that data which is neccessary, that is hidding unwanted info (internal 
+	 	   working) and just showing outer layer.  [ done with abstract class and interface ]
+
+Encapsulation   -  binding the data into a single unit, provides safety for the unit, from outside
+		   the data can not be accesssed or changed. [ similar to data hidding what a class does]
+
+Inheritance     -  includes superclass/subclass concept (parent-child), allows code reusability
+
+			[ single, multi-level, herirachial, multiple (done with help of interface), hybrid]
+
+
+Polymorphism    -  One name many forms,
+			|_
+			| compile time [ method overloading, operator overloading]			
+			|
+			|_
+			  run time [ method overriding]

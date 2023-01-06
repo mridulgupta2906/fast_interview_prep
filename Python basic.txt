@@ -1,0 +1,111 @@
+.Python is a interpreted , object oriented, high level scripting language
+.Python syntax is very easy to	understand.
+.Python is processed at runtime by the interpreter (no compilation needed before execution)
+.Python supports automatic garbage collection, and is called automatically
+.Python identifiers (name of a function or class or variablr or module etc) can start only with
+	A-Z, a-z, _  then can be followed by letter digits and _ and zero. It does not allow the use
+	of @,%,$ like symbols anywhere in the name.
+.Python is a case-sensitive language (ABC , abc are two different things)
+.Here are naming conventions for Python identifiers −
+
+	1> Class names start with an uppercase letter. All other identifiers start with a lowercase 
+	letter.
+
+	2> Starting an identifier with a single leading underscore indicates that the identifier is 
+	private.
+
+	3> Starting an identifier with two leading underscores indicates a strongly private 
+	identifier.
+
+	4> If the identifier also ends with two trailing underscores, the identifier is a 
+	language-defined special name.
+
+.Python has five standard data types −
+	Numbers		[int, long, float, complex]
+	String
+	List
+	Tuple
+	Dictionary
+.Python language supports the following types of operators.
+	Arithmetic Operators 			[+,-,*,/,%]
+	Comparison (Relational) Operators	[<,>,<=,>=,==,!=,<>]
+	Assignment Operators			[=,+=,-=,*=,/=]
+	Logical Operators			[OR,AND,NOT]
+	Bitwise Operators			[<<,>>,^,~]
+	Membership Operators
+	Identity Operators
+.Control Statement  [ break, continue, pass]
+
+
+
+
+*****************************************************************************************************
+	
+		NUMBERS 
+ex- x=1
+    x=2
+    print(x)    # output will be 2
+
+functions:-
+
+[int, long, float, complex]
+x=1
+ceil(),floor(),abs(),cmp(x,y) [returns; -1 when x<y ; 0 when x==y ; 1 when x>y] , max(x1,x2,x3...), 
+min(x1,x2,x3.....), sqrt()
+
+
+
+		STRINGS
+Strings are immutable in python. (meaning can not be updated)
+Python does not have character datatype so it is a string of len=1.
+Python considers '' and "" as same, but in general '''___''' is used for paragraph strings
+ex-	x='abcde'
+	y=[1,2,3,'a','b','c']
+	print(y[1:4])		# output 2,3,'a' 
+	print(x[1:4])		# output bcd
+
+
+		LISTS
+they are like array in c but can contain diff datatypes.Can be updated directly by index
+
+list.append(x)		# x is the value to be added
+list.remove(y)		# y is value not index, it is the value that is to be deleted
+del list[i]		# i is the index of the value in list which is to be deleted
+list.count(z)		# z is the value that count is to be calculated in array (count of occurance in array)
+list.reverse()		# reverse the list 
+
+
+		TUPLES
+This are immutable meaning can not be updated , u have to create a new tuple for it then.
+tup1=(10,);	to make a single value tuple adding , is neccessary
+tup=();
+
+del tup;	# deletes the whole tuple
+
+max(tup),min(tup),len(tup)
+
+		
+
+		DICTIONARIES
+dict={key:value}
+key is unique ; key is immutable
+
+functions:-
+len(dict)
+dict[new key]=new value  # add value in dict
+dict[old key]=new value  # update value to new value at old key 
+del dict[key]	# removes the pair from dict
+dict.clear	#clear all elements from dict
+del dict 	#delets whole dict  
+
+
+
+*****************************************************************************************************
+
+
+
+.Python data members and member functions are stored in private heap. Its memory managment is done
+	by python memory manager.
+.Pickling means to convert an object in memory into byte stream to send it over a network or save
+	it on a disk.
+	Unpickling means loading an pickled file back into a python program

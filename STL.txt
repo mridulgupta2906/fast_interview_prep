@@ -1,0 +1,314 @@
+	
+Basic STL with some important functions
+
+
+
+        				VECTOR
+
+
+#include<bits/stdc++.h>
+
+using namespace std;
+
+void tryvector(int arr[],int n)
+{
+    vector<int> vec;
+    for(int i=0; i<n; i++)
+    {
+        vec.push_back(arr[i]);
+    }
+   
+    for(int i=0; i<vec.size(); i++)
+       cout<<vec[i]<<",";
+    cout<<endl;
+    cout<<vec.pop_back();
+    cout<<vec.size()<<endl;
+    cout<<vec.capacity()<<endl;
+    cout<<vec.front()<<endl;
+    cout<<vec.back();
+}
+
+
+
+int main() 
+{
+   int arr[]={10,9,8,7,6};
+   int n=5;
+   tryvector(arr,n);
+
+    return 0;
+}
+
+*****************************************************************************************************
+
+
+				MAP
+
+#include<bits/stdc++.h>
+
+using namespace std;
+
+void trymap(vector<int> vec, int n)
+{
+     ----General use of map---------------------------
+
+    map<int,string>m;
+    for(int i=0; i<n; i++)
+       m[vec[i]]="string added "+to_string(i);
+    for(auto it=m.begin();it!=m.end();it++)
+       if(it->first==10) cout<<it->second;
+       cout<<it->first<<" "<<it->second<<endl;
+
+    ----Count repetation of array elements----------
+
+
+    map<int,int>m;
+    for(int i=0; i<n; i++)
+        m[vec[i]]++;
+    for(auto itr=m.begin(); itr!=m.end(); itr++)
+        cout<<itr->first<<" count = "<<itr->second<<endl;
+        
+    ---------Use of erase---------------------
+
+    m.erase(7);   // map.erase(key);
+   
+    
+}
+
+
+
+int main() 
+{
+   vector<int> vec{10,10,8,7,8,8,8,7};
+   int n=8;
+   trymap(vec,n);
+
+    return 0;
+}
+
+
+****************************************************************************************************
+
+
+				SET
+
+#include<bits/stdc++.h>
+
+using namespace std;
+void tryset(vector<int> vec, int n)
+{
+    set<int> s;
+    
+    ---------------General use of SET --------------- 
+    for(int i=0; i<n; i++)
+        s.insert(vec[i]);
+    
+    //set<int>::iterator itr;
+    for(auto itr=s.begin(); itr!=s.end(); itr++)
+    {
+        cout<<*itr<<" ";
+    }
+  
+  
+    -----------check for element to delete---------------
+    int a=0;
+    for(auto itr2=s.begin(); itr2!=s.end(); itr2++)
+      {
+          if(*itr2==10) a=1;
+      }   
+    if(a==1)   s.erase(10);
+    
+}
+
+
+
+
+int main()
+{
+    vector<int> vec{10,9,8,7,6,5,4,3,2,1};
+    int n=10;
+    
+    tryset(vec,n);
+    
+    return 0;
+}
+
+
+*****************************************************************************************************
+
+
+			STACK
+
+
+#include<bits/stdc++.h>
+
+using namespace std;
+
+void trystack(vector<int> vec, int n)
+{
+     stack<int> s;
+    
+   // ---------------General use of SET --------------- 
+    for(int i=0; i<n; i++)
+        s.push(vec[i]);
+    cout<<s.size()<<endl;
+    
+    //--------------Print and delete elements of the stack---
+    while(!s.empty())
+    {
+        cout<<s.top()<<" ";
+        s.pop();
+    }
+  
+}
+
+
+int main()
+{
+    vector<int> vec{10,9,8,7,6,5,4,3,2,1};
+    int n=10;
+    
+    trystack(vec,n);
+    
+    return 0;
+}
+
+
+
+*****************************************************************************************************
+
+
+		QUEUE
+
+
+#include<bits/stdc++.h>
+
+using namespace std;
+
+void tryqueue(vector<int> vec, int n)
+{
+     queue<int> q;
+     
+    for(int i=0; i<n; i++)
+        q.push(vec[i]);
+        cout<<q.front()<<" "<<q.back()<<endl;
+    while(!q.empty())
+    {
+        cout<<q.front()<<" ";
+        q.pop();
+    }
+  
+}
+
+
+int main()
+{
+    vector<int> vec{10,9,8,7,6,5,4,3,2,1};
+    int n=10;
+    
+    tryqueue(vec,n);
+    
+    return 0;
+}
+
+
+******************************************************************************************************
+
+		LINKEDLIST
+
+
+#include<bits/stdc++.h>
+using namespace std;
+
+class Node
+{
+    public:
+    int data;
+    Node *next;
+    Node(int data)
+    {
+        this->data=data;
+        next=NULL;
+    }
+};
+
+
+Node* reverselist(Node *root)
+{
+    Node *curr=root;
+    Node *localnxt=NULL;
+    Node *prev=NULL;
+    while(curr!=NULL)
+    {
+        localnxt=curr->next;
+        curr->next=prev;
+        prev=curr;
+        curr=localnxt;
+    }
+    return prev;
+}
+
+void findmid(Node *root)
+{
+    Node *walker=root;
+    Node *runner=root;
+    while(runner!=NULL && runner->next!=NULL)
+    {
+        runner=runner->next->next;
+        walker=walker->next;
+    }
+    cout<<"mid element = "<<walker->data;
+}
+
+void checkloop(Node *root)
+{
+    Node *walker=root;
+    Node *runner=root;
+    while(runner!=NULL && runner->next!=NULL)
+    {
+        walker=walker->next;
+        runner=runner->next->next;
+        if(runner==walker) 
+        {
+            cout<<endl<<"yes loop"<<endl;
+            break;
+        }
+    }
+    cout<<endl<<"no loop "<<endl;
+    
+}
+
+void printnodes(Node *root)
+{
+    while(root!=NULL)
+    {
+        cout<<root->data<<",";
+        root=root->next;
+    }
+}
+
+int main()
+{
+    Node *root=NULL;
+    Node *temp=NULL;
+    int arr[]={1,2,3,4,5,6,7,8,9,10,11};
+    int n=11;
+    root=new Node(arr[0]);
+    temp=root;
+    for(int i=1;i<n;i++)
+    {
+        temp->next=new Node(arr[i]);
+        temp=temp->next;
+    }
+    
+    
+    printnodes(root);
+    checkloop(root);
+    findmid(root);
+
+    Node *reverseroot=reverselist(root);
+    cout<<endl<<"reverse linekdlist : "<<endl;
+    printnodes(reverseroot);
+   
+    return 0;
+}

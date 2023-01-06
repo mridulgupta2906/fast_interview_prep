@@ -1,0 +1,41 @@
+Scharr gradient - gradient magnitude is used to measure how strong the change in image intensity is.
+		  The gradient orientation is used to determine in which direction the change in 
+                  intensity is pointing
+
+
+image thresholding - it is comparing a pixel value to a threshold value and if it is smaller than 
+		     assign it 0 and if it is greater than assign it max that is 255.
+
+
+Otsu's method    - is used to perform automatic image thresholding. In the simplest form, the 
+		     algorithm returns a single intensity threshold that separate pixels into two classes, foreground and background.
+
+
+Morph functions - https://opencv24-python-tutorials.readthedocs.io/en/latest/py_tutorials/py_imgproc/py_morphological_ops/py_morphological_ops.html
+
+Erosion: 
+It is useful for removing small white noises.
+Used to detach two connected objects etc.
+Dilation:
+In cases like noise removal, erosion is followed by dilation. Because, erosion removes white noises, but it also shrinks our object. So we dilate it. Since noise is gone, they won’t come back, but our object area increases.
+It is also useful in joining broken parts of an object.
+
+
+													image ( grayscale)
+										   __________________________|___________________________________
+										   |								|
+                                      apply blackhat morphological operation    [ cv2.MORPH_BLACKHAT ]                                     apply the operation to similarly to find light area [cv2.MORPH_CLOSE, 
+( mark all the black apperaring on the white background ; to detect area where text is )								cv2.THRESH_BINARY | cv2.THRESH_OTSU ]						
+			|																		 |
+																					 |
+	calculate schar gradient using sobel [  cv2.Sobel]													         | 
+																					 |
+			|																		 |
+	blur the gradient, apply close and threshold using otsu	[ cv2.MORPH_CLOSE, cv2.THRESH_BINARY | cv2.THRESH_OTSU ]	                                         |
+																				         |
+			|																		 |
+# perform a series of erosions and dilations to cleanup the thresholded image	[ cv2.erode, cv2.dilate]					                         |
+				_________________________________________________________________________________________________________________________________________|
+														|
+											# take the bitwise AND between the threshold result and the light regions of the image
+												 [ cv2.bitwise_and, cv2.erode, cv2.dilate
